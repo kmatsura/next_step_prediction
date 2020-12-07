@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 def get_title_and_category(conn):
     """
-    cookpad_dataからレシピ名とそれに対応するカテゴリを持ってくる。
+    cookpad_dataからレシピ名とそれに対応する手順を持ってくる。
     """
     cur = conn.cursor()
     category_id = 'c910ca8994e8f6953e0b85bbfc73f8305274886d'
