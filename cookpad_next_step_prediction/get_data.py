@@ -16,7 +16,7 @@ def get_title_and_category(conn):
     return result, rows
 
 
-def main():
+def get_data():
     """
     sqlで生データを取ってきて、必要な箇所をcsvの形で保存。
     """
@@ -39,11 +39,15 @@ def main():
     datasets = pd.DataFrame.from_dict(
         tmp_dict, orient='index', columns=["title", "memo", "pos"])
     BASEDIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    OUTPUTDIR = os.path.join(BASEDIR, 'data/')
+    OUTPUTDIR = os.path.join(BASEDIR, os.environ.get("DATADIR"))
     FILENAME = "raw_data.csv"
     if not os.path.exists(OUTPUTDIR):
         os.makedirs(OUTPUTDIR)
     datasets.to_csv(os.path.join(OUTPUTDIR, FILENAME))
+
+
+def main():
+    get_data()
 
 
 if __name__ == "__main__":
