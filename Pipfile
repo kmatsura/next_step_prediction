@@ -1,0 +1,18 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+torch = "*"
+pandas = "*"
+mysql-connector-python = "*"
+python-dotenv = "*"
+ginza = "*"
+spacy = "*"
+sklearn = "*"
+
+[requires]
+python_version = "3.8"
