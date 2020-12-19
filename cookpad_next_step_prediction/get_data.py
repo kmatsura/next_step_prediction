@@ -9,8 +9,7 @@ def get_title_and_category(conn):
     cookpad_dataからレシピ名とそれに対応する手順を持ってくる。
     """
     cur = conn.cursor()
-    category_id = 'c910ca8994e8f6953e0b85bbfc73f8305274886d'
-    sql = "SELECT r.title, st.memo, st.position FROM recipes r INNER JOIN steps st ON r.id = st.recipe_id;"
+    sql = "SELECT r.title, st.memo, st.position FROM recipes r INNER JOIN steps st ON r.id = st.recipe_id;"  # レシピのタイトルと対応する手順をもってくる。
     result = cur.execute(sql)
     rows = cur.fetchall()
     return result, rows
